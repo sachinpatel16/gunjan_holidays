@@ -2,10 +2,11 @@ interface EmailParams {
   name: string;
   email: string;
   message: string;
+  destination?: string;
   subject?: string;
 }
 
-export async function sendEmail({ name, email, message, subject }: EmailParams) {
+export async function sendEmail({ name, email, message, destination, subject }: EmailParams) {
   const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
   const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
   const adminTemplateId = import.meta.env.VITE_EMAILJS_ADMIN_TEMPLATE_ID;
@@ -35,6 +36,7 @@ export async function sendEmail({ name, email, message, subject }: EmailParams) 
           from_name: name,
           from_email: email,
           message: message,
+          destination: destination || '',
           subject: subject || 'New Inquiry',
         },
       }),
@@ -60,6 +62,7 @@ export async function sendEmail({ name, email, message, subject }: EmailParams) 
           to_name: name,
           to_email: email,
           message: message,
+          destination: destination || '',
         },
       }),
     });

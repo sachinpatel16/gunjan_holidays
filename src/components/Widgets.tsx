@@ -1,15 +1,16 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { Compass, X, Send } from 'lucide-react';
 import { sendEmail } from '../utils/email';
+import { destinations } from './Contact';
 
 export default function Widgets() {
   const [open, setOpen] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', destination: 'Gujarat', message: '' });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -23,10 +24,11 @@ export default function Widgets() {
         name: form.name,
         email: form.email,
         message: form.message,
+        destination: form.destination,
         subject: 'New Travel Planning Inquiry from Website Widget',
       });
       setSubmitted(true);
-      setForm({ name: '', email: '', message: '' });
+      setForm({ name: '', email: '', destination: 'Gujarat', message: '' });
     } catch (err: any) {
       setError(err.message || 'Something went wrong. Please try again later.');
     } finally {
@@ -120,6 +122,27 @@ export default function Widgets() {
                   required
                   disabled={submitting}
                 />
+              </div>
+
+              <div>
+                <label htmlFor="destination" className="text-xs uppercase tracking-[0.15em] font-semibold text-slate-500">
+                  Preferred Destination
+                </label>
+                <select
+                  id="destination"
+                  name="destination"
+                  value={form.destination}
+                  onChange={handleChange}
+                  className="mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 cursor-pointer"
+                  required
+                  disabled={submitting}
+                >
+                  {destinations.map((dest) => (
+                    <option key={dest} value={dest}>
+                      {dest}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <div>

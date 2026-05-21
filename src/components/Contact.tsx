@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Phone, Mail, MapPin, Send, Clock } from 'lucide-react';
 import { sendEmail } from '../utils/email';
 
-const destinations = [
-  'Bali, Indonesia', 'Dubai, UAE', 'Maldives', 'Switzerland', 'Thailand', 'Goa', 'Kashmir', 'Rajasthan', 'Other',
+export const destinations = [
+  'Gujarat','Bali', 'Indonesia', 'Dubai', 'UAE', 'Maldives', 'Switzerland', 'Thailand', 'Goa', 'Kashmir', 'Rajasthan', 'Other',
 ];
 
 export default function Contact() {
@@ -13,7 +13,7 @@ export default function Contact() {
   const [form, setForm] = useState({
     name: '',
     email: '',
-    destination: 'Bali, Indonesia',
+    destination: 'Gujarat',
     message: '',
   });
   const [submitting, setSubmitting] = useState(false);
@@ -41,11 +41,12 @@ export default function Contact() {
       await sendEmail({
         name: form.name,
         email: form.email,
-        message: `Preferred Destination: ${form.destination}\n\nMessage:\n${form.message}`,
+        message: form.message,
+        destination: form.destination,
         subject: 'New Travel Planning Inquiry',
       });
       setSubmitted(true);
-      setForm({ name: '', email: '', destination: 'Bali, Indonesia', message: '' });
+      setForm({ name: '', email: '', destination: 'Gujarat', message: '' });
     } catch (err: any) {
       setError(err.message || 'Something went wrong. Please try again later.');
     } finally {
