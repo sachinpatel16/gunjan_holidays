@@ -1,7 +1,45 @@
-import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight, Facebook, Instagram, Linkedin, Star } from 'lucide-react';
+
+const XIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
+
+const socialLinks = [
+  {
+    name: 'Facebook',
+    url: 'https://www.facebook.com/profile.php?id=100083275517477',
+    icon: Facebook,
+    hoverClass: 'hover:text-[#1877F2] hover:border-[#1877F2] hover:bg-[#1877F2]/10',
+  },
+  {
+    name: 'Instagram',
+    url: 'https://www.instagram.com/gunjanholidays/',
+    icon: Instagram,
+    hoverClass: 'hover:text-[#E4405F] hover:border-[#E4405F] hover:bg-[#E4405F]/10',
+  },
+  {
+    name: 'X (formerly Twitter)',
+    url: 'https://x.com/GunjanHolidays',
+    icon: XIcon,
+    hoverClass: 'hover:text-white hover:border-white hover:bg-white/10',
+  },
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/gunjan-holidays-4b4559266/',
+    icon: Linkedin,
+    hoverClass: 'hover:text-[#0A66C2] hover:border-[#0A66C2] hover:bg-[#0A66C2]/10',
+  },
+  {
+    name: 'Google Review',
+    url: 'https://g.page/r/CSLK_2lzb5mfEB0/review',
+    icon: Star,
+    hoverClass: 'hover:text-[#FFC107] hover:border-[#FFC107] hover:bg-[#FFC107]/10 hover:fill-[#FFC107]',
+  },
+];
 
 const quickLinks = ['Home', 'About Us', 'Destinations', 'Packages', 'Services', 'Gallery', 'Contact'];
-const destinations = ['Bali, Indonesia', 'Dubai, UAE', 'Maldives', 'Switzerland', 'Goa, India', 'Thailand'];
 const services = ['Flight Booking', 'Hotel Booking', 'Visa Assistance', 'Tour Packages', 'Cruise Planning', 'Travel Insurance'];
 
 export default function Footer() {
@@ -27,16 +65,22 @@ export default function Footer() {
             <p className="text-white/50 text-sm leading-relaxed mb-6">
               Your trusted travel partner for unforgettable journeys. We turn dream vacations into lifelong memories with personalized experiences and unmatched service.
             </p>
-            <div className="flex gap-3">
-              {['Facebook', 'Instagram', 'Twitter', 'YouTube'].map((s) => (
-                <button
-                  key={s}
-                  className="w-9 h-9 border border-white/10 hover:border-blue-600 hover:bg-blue-600/10 rounded-lg text-white/40 hover:text-blue-500 text-xs font-bold transition-all duration-300"
-                  title={s}
-                >
-                  {s[0]}
-                </button>
-              ))}
+            <div className="flex flex-wrap gap-2.5">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex items-center justify-center w-10 h-10 border border-white/10 rounded-lg text-white/40 transition-all duration-300 ${social.hoverClass}`}
+                    title={social.name}
+                  >
+                    <Icon className="w-5 h-5 transition-transform duration-300 hover:scale-110" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -77,14 +121,19 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-widest">Contact Us</h4>
             <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                <p className="text-white/50 text-sm leading-relaxed">
+              <a
+                href="https://g.page/r/CSLK_2lzb5mfEB0/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 group/map"
+              >
+                <MapPin className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5 group-hover/map:text-blue-500 transition-colors" />
+                <p className="text-white/50 text-sm leading-relaxed group-hover/map:text-blue-500 transition-colors">
                   24, G/F, Parth Empire,<br />
                   Opp. Rambag Police Station,<br />
                   Maninagar, Ahmedabad - 380008
                 </p>
-              </div>
+              </a>
               <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-1" />
                 <div className="flex flex-col gap-1">

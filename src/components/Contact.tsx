@@ -1,6 +1,45 @@
 import { useEffect, useRef, useState } from 'react';
-import { Phone, Mail, MapPin, Send, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Clock, Facebook, Instagram, Linkedin, Star } from 'lucide-react';
 import { sendEmail } from '../utils/email';
+
+const XIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
+
+const socialLinks = [
+  {
+    name: 'Facebook',
+    url: 'https://www.facebook.com/profile.php?id=100083275517477',
+    icon: Facebook,
+    hoverClass: 'hover:text-[#1877F2] hover:border-[#1877F2] hover:bg-[#1877F2]/10',
+  },
+  {
+    name: 'Instagram',
+    url: 'https://www.instagram.com/gunjanholidays/',
+    icon: Instagram,
+    hoverClass: 'hover:text-[#E4405F] hover:border-[#E4405F] hover:bg-[#E4405F]/10',
+  },
+  {
+    name: 'X (formerly Twitter)',
+    url: 'https://x.com/GunjanHolidays',
+    icon: XIcon,
+    hoverClass: 'hover:text-white hover:border-white hover:bg-white/10',
+  },
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/gunjan-holidays-4b4559266/',
+    icon: Linkedin,
+    hoverClass: 'hover:text-[#0A66C2] hover:border-[#0A66C2] hover:bg-[#0A66C2]/10',
+  },
+  {
+    name: 'Google Review',
+    url: 'https://g.page/r/CSLK_2lzb5mfEB0/review',
+    icon: Star,
+    hoverClass: 'hover:text-[#FFC107] hover:border-[#FFC107] hover:bg-[#FFC107]/10 hover:fill-[#FFC107]',
+  },
+];
 
 export const destinations = [
   'Gujarat','Bali', 'Indonesia', 'Dubai', 'UAE', 'Maldives', 'Switzerland', 'Thailand', 'Goa', 'Kashmir', 'Rajasthan', 'Other',
@@ -125,31 +164,43 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-white/20 transition-all duration-300">
-                    <div className="flex items-center gap-2 mb-3 text-red-500">
+                  <a
+                    href="https://g.page/r/CSLK_2lzb5mfEB0/review"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-white/20 hover:bg-white/[0.08] transition-all duration-300 group/map"
+                  >
+                    <div className="flex items-center gap-2 mb-3 text-red-500 group-hover/map:text-red-400 transition-colors">
                       <MapPin className="w-4 h-4" />
                       <span className="text-[9px] uppercase tracking-wider font-bold">Our Office</span>
                     </div>
-                    <p className="text-white text-sm leading-relaxed font-medium">
+                    <p className="text-white text-sm leading-relaxed font-medium group-hover/map:text-blue-400 transition-colors">
                       24, G/F, Parth Empire,<br />
                       Opp. Rambag Police Station,<br />
                       Maninagar, Ahmedabad - 380008
                     </p>
-                  </div>
+                  </a>
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
+              <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between flex-wrap gap-4">
                 <span className="text-white/40 text-xs uppercase tracking-wider font-semibold">Follow Us</span>
-                <div className="flex gap-2">
-                  {['FB', 'IG', 'TW', 'YT'].map((s) => (
-                    <button
-                      key={s}
-                      className="w-8 h-8 border border-white/10 hover:border-blue-600 hover:bg-blue-600/10 rounded-lg text-white/40 hover:text-blue-500 text-xs font-bold transition-all duration-300"
-                    >
-                      {s}
-                    </button>
-                  ))}
+                <div className="flex flex-wrap gap-2.5">
+                  {socialLinks.map((social) => {
+                    const Icon = social.icon;
+                    return (
+                      <a
+                        key={social.name}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center justify-center w-8 h-8 border border-white/10 rounded-lg text-white/40 transition-all duration-300 ${social.hoverClass}`}
+                        title={social.name}
+                      >
+                        <Icon className="w-4.5 h-4.5 transition-transform duration-300 hover:scale-110" />
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             </div>
