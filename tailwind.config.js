@@ -1,12 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        display: ['Playfair Display', 'serif'],
-        accent: ['Cormorant Garamond', 'serif'],
+        body: ['var(--font-body)', 'sans-serif'],
+        display: ['var(--font-heading)', 'serif'],
+        accent: ['var(--font-accent)', 'serif'],
       },
     },
   },
