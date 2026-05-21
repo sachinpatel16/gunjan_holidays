@@ -31,7 +31,7 @@ export default function Footer() {
               {['Facebook', 'Instagram', 'Twitter', 'YouTube'].map((s) => (
                 <button
                   key={s}
-                  className="w-9 h-9 border border-white/10 hover:border-amber-500 hover:bg-amber-500/10 rounded-lg text-white/40 hover:text-amber-400 text-xs font-bold transition-all duration-300"
+                  className="w-9 h-9 border border-white/10 hover:border-blue-600 hover:bg-blue-600/10 rounded-lg text-white/40 hover:text-blue-500 text-xs font-bold transition-all duration-300"
                   title={s}
                 >
                   {s[0]}
@@ -47,7 +47,7 @@ export default function Footer() {
                 <li key={link}>
                   <button
                     onClick={() => scrollTo(`#${link.toLowerCase().replace(' ', '')}`)}
-                    className="text-white/50 hover:text-amber-400 text-sm flex items-center gap-2 transition-colors duration-200 group"
+                    className="text-white/50 hover:text-blue-500 text-sm flex items-center gap-2 transition-colors duration-200 group"
                   >
                     <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-200" />
                     {link}
@@ -64,7 +64,7 @@ export default function Footer() {
                 <li key={s}>
                   <button
                     onClick={() => scrollTo('#services')}
-                    className="text-white/50 hover:text-amber-400 text-sm flex items-center gap-2 transition-colors duration-200 group"
+                    className="text-white/50 hover:text-blue-500 text-sm flex items-center gap-2 transition-colors duration-200 group"
                   >
                     <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-200" />
                     {s}
@@ -78,7 +78,7 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-widest">Contact Us</h4>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                 <p className="text-white/50 text-sm leading-relaxed">
                   24, G/F, Parth Empire,<br />
                   Opp. Rambag Police Station,<br />
@@ -86,20 +86,20 @@ export default function Footer() {
                 </p>
               </div>
               <div className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-amber-500 flex-shrink-0 mt-1" />
+                <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-1" />
                 <div className="flex flex-col gap-1">
-                  <a href="tel:+919898297746" className="text-white/50 hover:text-amber-400 text-sm transition-colors">+91 98982 97746</a>
-                  <a href="tel:+919998493934" className="text-white/50 hover:text-amber-400 text-sm transition-colors">+91 99984 93934</a>
+                  <a href="tel:+919898297746" className="text-white/50 hover:text-blue-500 text-sm transition-colors">+91 98982 97746</a>
+                  <a href="tel:+919998493934" className="text-white/50 hover:text-blue-500 text-sm transition-colors">+91 99984 93934</a>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                <a href="mailto:info@gunjanholidays.com" className="text-white/50 hover:text-amber-400 text-sm transition-colors">info@gunjanholidays.com</a>
+                <Mail className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                <a href="mailto:info@gunjanholidays.com" className="text-white/50 hover:text-blue-500 text-sm transition-colors">info@gunjanholidays.com</a>
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl">
-              <p className="text-amber-400 text-xs font-semibold uppercase tracking-wide mb-1">24/7 Support</p>
+            <div className="mt-6 p-4 bg-blue-600/10 border border-blue-600/20 rounded-xl">
+              <p className="text-blue-500 text-xs font-semibold uppercase tracking-wide mb-1">24/7 Support</p>
               <p className="text-white/60 text-sm">We're always here to help you plan the perfect trip.</p>
             </div>
           </div>
@@ -111,7 +111,7 @@ export default function Footer() {
           </p>
           <div className="flex gap-6">
             {['Privacy Policy', 'Terms of Service', 'Refund Policy'].map((item) => (
-              <button key={item} className="text-white/40 hover:text-amber-400 text-xs transition-colors duration-200">
+              <button key={item} className="text-white/40 hover:text-blue-500 text-xs transition-colors duration-200">
                 {item}
               </button>
             ))}

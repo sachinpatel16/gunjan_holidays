@@ -67,12 +67,12 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className={`transition-all duration-700 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            <span className="text-amber-500 text-sm font-semibold tracking-[0.2em] uppercase">About GunjanHolidays</span>
+            <span className="text-blue-600 text-sm font-semibold tracking-[0.2em] uppercase">About GunjanHolidays</span>
             <h2
               className="text-slate-900 text-4xl md:text-5xl font-bold mt-3 mb-6 leading-tight"
               style={{ fontFamily: 'Playfair Display, serif' }}
             >
-              Your Trusted Travel <span className="text-amber-500">Partner</span>
+              Your Trusted Travel <span className="text-red-500">Partner</span>
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-6 text-justify">
               For over a decade, GunjanHolidays has been turning dream vacations into unforgettable realities. We believe every journey should be seamless, enriching, and perfectly tailored to you.
@@ -83,8 +83,8 @@ export default function About() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {reasons.map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="flex gap-3">
-                  <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Icon className="w-5 h-5 text-amber-500" />
+                  <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Icon className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
                     <h4 className="text-slate-800 font-semibold text-sm mb-1">{title}</h4>
@@ -107,7 +107,7 @@ export default function About() {
                 alt="Happy travelers"
                 className="absolute -bottom-8 -left-8 w-48 h-48 rounded-2xl shadow-xl border-4 border-white object-cover hidden md:block"
               />
-              <div className="absolute -top-4 -right-4 bg-amber-500 text-white rounded-2xl p-4 shadow-xl hidden md:block">
+              <div className="absolute -top-4 -right-4 bg-red-500 text-white rounded-2xl p-4 shadow-xl hidden md:block">
                 <p className="text-2xl font-bold">12+</p>
                 <p className="text-xs font-medium">Years of Excellence</p>
               </div>
@@ -121,8 +121,8 @@ export default function About() {
               key={label}
               className="text-center bg-slate-50 rounded-2xl p-4 sm:p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-amber-500" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
               </div>
               <p className="text-xl sm:text-3xl font-bold text-slate-900 mb-1" style={{ fontFamily: 'Playfair Display, serif' }}>
                 <Counter target={value} suffix={suffix} />

@@ -65,12 +65,12 @@ const destinations = [
 ];
 
 const tagColors: Record<string, string> = {
-  'Most Popular': 'bg-amber-500',
+  'Most Popular': 'bg-red-500',
   'Trending': 'bg-rose-500',
   'Luxury': 'bg-slate-700',
   'Premium': 'bg-teal-600',
   'Budget Friendly': 'bg-green-500',
-  'Adventure': 'bg-orange-500',
+  'Adventure': 'bg-blue-600',
 };
 
 export default function Destinations() {
@@ -90,7 +90,7 @@ export default function Destinations() {
     <section id="destinations" className="py-16 md:py-24 bg-slate-50" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <span className="text-amber-500 text-sm font-semibold tracking-[0.2em] uppercase">Explore the World</span>
+          <span className="text-blue-600 text-sm font-semibold tracking-[0.2em] uppercase">Explore the World</span>
           <h2
             className="text-slate-900 text-4xl md:text-5xl font-bold mt-3 mb-4"
             style={{ fontFamily: 'Playfair Display, serif' }}
@@ -122,7 +122,7 @@ export default function Destinations() {
                   {dest.tag}
                 </span>
                 <div className="absolute bottom-4 left-4 flex items-center gap-1 text-white">
-                  <MapPin className="w-4 h-4 text-amber-400" />
+                  <MapPin className="w-4 h-4 text-blue-500" />
                   <span className="text-sm font-medium">{dest.name}</span>
                 </div>
               </div>
@@ -135,7 +135,7 @@ export default function Destinations() {
                     <span>{dest.duration}</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    <Star className="w-4 h-4 fill-red-500 text-red-500" />
                     <span className="text-slate-600 font-medium">{dest.rating}</span>
                     <span className="text-slate-400">({dest.reviews})</span>
                   </div>
@@ -147,7 +147,7 @@ export default function Destinations() {
                   </div>
                   <button
                     onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="flex items-center gap-1 bg-amber-50 hover:bg-amber-500 text-amber-600 hover:text-white font-semibold text-sm px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all duration-300 group/btn whitespace-nowrap"
+                    className="flex items-center gap-1 bg-blue-50 hover:bg-blue-600 text-blue-600 hover:text-white font-semibold text-sm px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all duration-300 group/btn whitespace-nowrap"
                   >
                     Book Trip
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />

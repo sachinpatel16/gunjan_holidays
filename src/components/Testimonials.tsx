@@ -89,7 +89,7 @@ export default function Testimonials() {
       </div>
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <span className="text-amber-400 text-sm font-semibold tracking-[0.2em] uppercase">What Travelers Say</span>
+          <span className="text-red-500 text-sm font-semibold tracking-[0.2em] uppercase">What Travelers Say</span>
           <h2
             className="text-white text-4xl md:text-5xl font-bold mt-3"
             style={{ fontFamily: 'Playfair Display, serif' }}
@@ -100,12 +100,12 @@ export default function Testimonials() {
 
         <div className={`transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-6 sm:p-8 md:p-12 relative">
-            <Quote className="absolute top-8 left-8 w-10 h-10 text-amber-500/30" />
+            <Quote className="absolute top-8 left-8 w-10 h-10 text-blue-600/30" />
 
             <div className="text-center">
               <div className="flex justify-center gap-1 mb-6">
                 {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                  <Star key={i} className="w-5 h-5 fill-red-500 text-red-500" />
                 ))}
               </div>
 
@@ -117,12 +117,12 @@ export default function Testimonials() {
                 <img
                   src={t.avatar}
                   alt={t.name}
-                  className="w-16 h-16 rounded-full object-cover border-2 border-amber-500"
+                  className="w-16 h-16 rounded-full object-cover border-2 border-blue-600"
                 />
                 <div className="text-left">
                   <p className="text-white font-bold text-lg">{t.name}</p>
                   <p className="text-white/50 text-sm">{t.location}</p>
-                  <span className="text-amber-400 text-xs font-semibold">{t.trip}</span>
+                  <span className="text-red-500 text-xs font-semibold">{t.trip}</span>
                 </div>
               </div>
             </div>
@@ -131,7 +131,7 @@ export default function Testimonials() {
           <div className="flex items-center justify-center gap-6 mt-8">
             <button
               onClick={() => go(-1)}
-              className="w-10 h-10 rounded-full border border-white/20 hover:border-amber-500 text-white/60 hover:text-amber-500 flex items-center justify-center transition-all duration-300"
+              className="w-10 h-10 rounded-full border border-white/20 hover:border-blue-600 text-white/60 hover:text-blue-500 flex items-center justify-center transition-all duration-300"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -142,7 +142,7 @@ export default function Testimonials() {
                   key={i}
                   onClick={() => { if (intervalRef.current) clearInterval(intervalRef.current); setCurrent(i); startAuto(); }}
                   className={`transition-all duration-300 rounded-full ${
-                    i === current ? 'w-8 h-2 bg-amber-500' : 'w-2 h-2 bg-white/30 hover:bg-white/60'
+                    i === current ? 'w-8 h-2 bg-blue-600' : 'w-2 h-2 bg-white/30 hover:bg-white/60'
                   }`}
                 />
               ))}
@@ -150,7 +150,7 @@ export default function Testimonials() {
 
             <button
               onClick={() => go(1)}
-              className="w-10 h-10 rounded-full border border-white/20 hover:border-amber-500 text-white/60 hover:text-amber-500 flex items-center justify-center transition-all duration-300"
+              className="w-10 h-10 rounded-full border border-white/20 hover:border-blue-600 text-white/60 hover:text-blue-500 flex items-center justify-center transition-all duration-300"
             >
               <ChevronRight className="w-5 h-5" />
             </button>

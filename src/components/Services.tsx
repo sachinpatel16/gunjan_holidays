@@ -20,8 +20,8 @@ const services = [
     icon: Hotel,
     title: 'Hotel Reservation',
     desc: 'Handpicked domestic and international hotels ranging from budget to luxury stays.',
-    color: 'bg-amber-50 text-amber-600',
-    hoverColor: 'hover:bg-amber-600',
+    color: 'bg-blue-50 text-blue-600',
+    hoverColor: 'hover:bg-blue-600',
   },
   {
     icon: Users,
@@ -77,9 +77,9 @@ export default function Services() {
     <section id="services" className="py-16 md:py-24 bg-slate-50" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <span className="text-amber-500 text-sm font-semibold tracking-[0.2em] uppercase">What We Offer</span>
+          <span className="text-blue-600 text-sm font-semibold tracking-[0.2em] uppercase">What We Offer</span>
           <h2
-            className="text-slate-900 text-4xl md:text-5xl font-bold mt-3 mb-4"
+            className="text-slate-950 text-4xl md:text-5xl font-bold mt-3 mb-4"
             style={{ fontFamily: 'Playfair Display, serif' }}
           >
             Our Services
@@ -107,7 +107,7 @@ export default function Services() {
               <p className="text-slate-500 text-sm leading-relaxed mb-4">{desc}</p>
               <button
                 onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="flex items-center gap-1 text-amber-500 text-sm font-semibold hover:gap-2 transition-all duration-200"
+                className="flex items-center gap-1 text-blue-600 text-sm font-semibold hover:gap-2 transition-all duration-200"
               >
                 Learn More <ArrowRight className="w-4 h-4" />
               </button>

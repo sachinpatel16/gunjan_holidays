@@ -37,7 +37,7 @@ export default function Gallery() {
     <section id="gallery" className="py-24 bg-white" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <span className="text-amber-500 text-sm font-semibold tracking-[0.2em] uppercase">Visual Journey</span>
+          <span className="text-blue-600 text-sm font-semibold tracking-[0.2em] uppercase">Visual Journey</span>
           <h2
             className="text-slate-900 text-4xl md:text-5xl font-bold mt-3 mb-4"
             style={{ fontFamily: 'Playfair Display, serif' }}

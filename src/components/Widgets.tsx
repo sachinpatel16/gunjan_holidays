@@ -42,8 +42,8 @@ export default function Widgets() {
         <div className="w-[calc(100vw-2rem)] sm:w-[350px] max-h-[calc(100vh-6rem)] overflow-y-auto bg-white rounded-3xl shadow-2xl shadow-slate-900/10 border border-slate-100 animate-fade-in">
           <div className="flex items-center justify-between gap-4 p-5 bg-slate-900 text-white rounded-t-3xl">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
-                <Compass className="w-5 h-5 text-amber-500 animate-pulse" />
+              <div className="w-10 h-10 rounded-xl bg-blue-600/10 flex items-center justify-center">
+                <Compass className="w-5 h-5 text-blue-600 animate-pulse" />
               </div>
               <div>
                 <p className="text-sm font-bold tracking-wide" style={{ fontFamily: 'Playfair Display, serif' }}>Plan Your Trip</p>
@@ -61,8 +61,8 @@ export default function Widgets() {
 
           {submitted ? (
             <div className="flex flex-col items-center justify-center text-center p-8 bg-white h-[350px]">
-              <div className="w-16 h-16 bg-amber-500/10 rounded-full flex items-center justify-center mb-4">
-                <Send className="w-6 h-6 text-amber-500 animate-bounce" />
+              <div className="w-16 h-16 bg-blue-600/10 rounded-full flex items-center justify-center mb-4">
+                <Send className="w-6 h-6 text-blue-600 animate-bounce" />
               </div>
               <h3 className="text-slate-900 text-xl font-bold mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
                 Inquiry Sent!
@@ -75,7 +75,7 @@ export default function Widgets() {
                   setSubmitted(false);
                   setOpen(false);
                 }}
-                className="bg-amber-500 hover:bg-amber-600 text-white font-semibold text-xs px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/20"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20"
               >
                 Close Window
               </button>
@@ -98,7 +98,7 @@ export default function Widgets() {
                   type="text"
                   value={form.name}
                   onChange={handleChange}
-                  className="mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition-all duration-200"
+                  className="mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
                   placeholder="e.g. Priya Sharma"
                   required
                   disabled={submitting}
@@ -115,7 +115,7 @@ export default function Widgets() {
                   type="email"
                   value={form.email}
                   onChange={handleChange}
-                  className="mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition-all duration-200"
+                  className="mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
                   placeholder="you@example.com"
                   required
                   disabled={submitting}
@@ -132,7 +132,7 @@ export default function Widgets() {
                   rows={4}
                   value={form.message}
                   onChange={handleChange}
-                  className="mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition-all duration-200 resize-none"
+                  className="mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 resize-none"
                   placeholder="Tell us where you'd like to go and your travel dates..."
                   required
                   disabled={submitting}
@@ -144,7 +144,7 @@ export default function Widgets() {
                 disabled={!canSend}
                 className={`w-full rounded-xl px-5 py-3.5 text-sm font-semibold transition-all duration-300 ${
                   canSend
-                    ? 'bg-amber-500 hover:bg-amber-600 text-white shadow-lg shadow-amber-500/20 active:scale-[0.98]'
+                    ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/20 active:scale-[0.98]'
                     : 'bg-slate-100 text-slate-400 cursor-not-allowed'
                 }`}
               >
@@ -169,7 +169,7 @@ export default function Widgets() {
 
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="w-14 h-14 bg-amber-500 hover:bg-amber-600 text-white rounded-full flex items-center justify-center shadow-2xl shadow-amber-500/40 hover:shadow-amber-500/60 transition-all duration-300 hover:scale-110 active:scale-95 group"
+        className="w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center shadow-2xl shadow-blue-600/40 hover:shadow-blue-600/60 transition-all duration-300 hover:scale-110 active:scale-95 group"
         aria-label="Open travel planner"
       >
         <Compass className={`w-7 h-7 text-white transition-transform duration-500 ${open ? 'rotate-180' : 'group-hover:rotate-45'}`} />

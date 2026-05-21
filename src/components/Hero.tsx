@@ -58,18 +58,18 @@ export default function Hero() {
         }`}
       >
         <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 animate-fade-in">
-          <span className="h-[1px] w-6 sm:w-10 bg-amber-400/40" />
-          {/* <span className="text-amber-400 text-xs sm:text-sm font-bold tracking-[0.3em] uppercase block">
+          <span className="h-[1px] w-6 sm:w-10 bg-red-500/40" />
+          {/* <span className="text-red-500 text-xs sm:text-sm font-bold tracking-[0.3em] uppercase block">
             Keep Your Dreams Alive
           </span> */}
-          <span className="h-[1px] w-6 sm:w-10 bg-amber-400/40" />
+          <span className="h-[1px] w-6 sm:w-10 bg-red-500/40" />
         </div>
         <h1
           className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 sm:mb-6"
           style={{ fontFamily: 'Playfair Display, serif' }}
         >
           Explore the World
-          <span className="block italic text-amber-400">with Us</span>
+          <span className="block italic text-red-500">with Us</span>
         </h1>
         <p className="text-white/80 text-sm sm:text-lg md:text-xl max-w-2xl mb-6 sm:mb-10 leading-relaxed font-light">
           Discover extraordinary destinations, create lifelong memories, and experience the magic of travel with our curated luxury packages.
@@ -78,7 +78,7 @@ export default function Hero() {
           <a
             href="#contact"
             onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-6 py-3.5 sm:px-8 sm:py-4 rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/40 hover:-translate-y-0.5 text-sm sm:text-base text-center"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3.5 sm:px-8 sm:py-4 rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-blue-600/40 hover:-translate-y-0.5 text-sm sm:text-base text-center"
           >
             Book Now
           </a>
@@ -98,7 +98,7 @@ export default function Hero() {
               key={i}
               onClick={() => setCurrent(i)}
               className={`transition-all duration-300 rounded-full ${
-                i === current ? 'w-8 h-2 bg-amber-500' : 'w-2 h-2 bg-white/50 hover:bg-white/80'
+                i === current ? 'w-8 h-2 bg-blue-600' : 'w-2 h-2 bg-white/50 hover:bg-white/80'
               }`}
             />
           ))}

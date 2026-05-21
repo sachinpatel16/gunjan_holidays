@@ -52,7 +52,7 @@ export default function Navbar() {
             <li key={link.href}>
               <button
                 onClick={() => handleNav(link.href)}
-                className={`text-sm font-medium tracking-wide transition-colors duration-300 hover:text-amber-500 ${
+                className={`text-sm font-medium tracking-wide transition-colors duration-300 hover:text-blue-500 ${
                   scrolled ? 'text-slate-700' : 'text-white/90'
                 }`}
               >
@@ -63,7 +63,7 @@ export default function Navbar() {
           <li>
             <button
               onClick={() => handleNav('#contact')}
-              className="bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/30"
+              className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/30"
             >
               Book Now
             </button>
@@ -85,7 +85,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <button
                   onClick={() => handleNav(link.href)}
-                  className="w-full text-left text-slate-700 hover:text-amber-500 font-medium py-3 border-b border-slate-50 transition-colors duration-200"
+                  className="w-full text-left text-slate-700 hover:text-blue-500 font-medium py-3 border-b border-slate-50 transition-colors duration-200"
                 >
                   {link.label}
                 </button>
@@ -94,7 +94,7 @@ export default function Navbar() {
             <li className="pt-3">
               <button
                 onClick={() => handleNav('#contact')}
-                className="w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 rounded-full transition-colors duration-300"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-full transition-colors duration-300"
               >
                 Book Now
               </button>

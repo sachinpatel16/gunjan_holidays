@@ -31,7 +31,7 @@ const packages = [
     price: '₹28,999',
     duration: '7N / 8D',
     badge: 'Heritage',
-    badgeColor: 'bg-amber-600',
+    badgeColor: 'bg-blue-600',
     highlights: ['Palace hotels', 'Camel safari', 'Desert camp', 'City palace tour', 'Pushkar visit'],
   },
   {
@@ -41,7 +41,7 @@ const packages = [
     price: '₹55,999',
     duration: '5N / 6D',
     badge: 'Most Popular',
-    badgeColor: 'bg-amber-500',
+    badgeColor: 'bg-red-500',
     highlights: ['5-star resort', 'Temple hopping', 'Rice terrace trek', 'Cooking class', 'Spa treatment'],
   },
   {
@@ -86,7 +86,7 @@ export default function Packages() {
     <section id="packages" className="py-16 md:py-24 bg-white" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-12 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <span className="text-amber-500 text-sm font-semibold tracking-[0.2em] uppercase">Curated For You</span>
+          <span className="text-blue-600 text-sm font-semibold tracking-[0.2em] uppercase">Curated For You</span>
           <h2
             className="text-slate-900 text-4xl md:text-5xl font-bold mt-3 mb-4"
             style={{ fontFamily: 'Playfair Display, serif' }}
@@ -102,7 +102,7 @@ export default function Packages() {
                 key={tab}
                 onClick={() => setActive(tab)}
                 className={`px-3 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold capitalize transition-all duration-300 ${
-                  active === tab ? 'bg-white text-amber-600 shadow-md' : 'text-slate-500 hover:text-slate-700'
+                  active === tab ? 'bg-white text-blue-600 shadow-md' : 'text-slate-500 hover:text-slate-700'
                 }`}
               >
                 {tab}
@@ -140,7 +140,7 @@ export default function Packages() {
                 <ul className="space-y-2 mb-6">
                   {pkg.highlights.map((h) => (
                     <li key={h} className="flex items-center gap-2 text-slate-600 text-sm">
-                      <Check className="w-4 h-4 text-amber-500 flex-shrink-0" />
+                      <Check className="w-4 h-4 text-blue-600 flex-shrink-0" />
                       {h}
                     </li>
                   ))}
@@ -152,7 +152,7 @@ export default function Packages() {
                   </div>
                   <button
                     onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="flex items-center gap-1 bg-amber-500 hover:bg-amber-600 text-white font-semibold text-sm px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/30 group/btn whitespace-nowrap"
+                    className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/30 group/btn whitespace-nowrap"
                   >
                     Book Now
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
