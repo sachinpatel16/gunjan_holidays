@@ -41,7 +41,7 @@ export default function Navbar() {
           <img
             src="/images/logo.svg"
             alt="Gunjan Holidays"
-            className={`h-12 sm:h-14 w-auto object-contain transition-all duration-300 ${
+            className={`h-14 sm:h-20 w-auto object-contain transition-all duration-300 ${
               scrolled || menuOpen ? '' : 'brightness-0 invert'
             }`}
           />
