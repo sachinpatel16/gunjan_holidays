@@ -37,9 +37,9 @@ export default function Widgets() {
   const canSend = form.name.trim() && form.email.trim() && form.message.trim() && !submitting;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-3 max-w-[calc(100vw-2rem)] sm:max-w-none">
       {open && (
-        <div className="w-[350px] bg-white rounded-3xl shadow-2xl shadow-slate-900/10 border border-slate-100 overflow-hidden animate-fade-in">
+        <div className="w-[calc(100vw-2rem)] sm:w-[350px] max-h-[calc(100vh-6rem)] overflow-y-auto bg-white rounded-3xl shadow-2xl shadow-slate-900/10 border border-slate-100 animate-fade-in">
           <div className="flex items-center justify-between gap-4 p-5 bg-slate-900 text-white rounded-t-3xl">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center">

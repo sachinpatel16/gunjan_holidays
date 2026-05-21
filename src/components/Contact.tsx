@@ -13,6 +13,7 @@ export default function Contact() {
   const [form, setForm] = useState({
     name: '',
     email: '',
+    destination: 'Bali, Indonesia',
     message: '',
   });
   const [submitting, setSubmitting] = useState(false);
@@ -40,11 +41,11 @@ export default function Contact() {
       await sendEmail({
         name: form.name,
         email: form.email,
-        message: form.message,
-        subject: 'New Message from Contact Us Form',
+        message: `Preferred Destination: ${form.destination}\n\nMessage:\n${form.message}`,
+        subject: 'New Travel Planning Inquiry',
       });
       setSubmitted(true);
-      setForm({ name: '', email: '', message: '' });
+      setForm({ name: '', email: '', destination: 'Bali, Indonesia', message: '' });
     } catch (err: any) {
       setError(err.message || 'Something went wrong. Please try again later.');
     } finally {
@@ -53,7 +54,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-white" ref={sectionRef}>
+    <section id="contact" className="py-16 md:py-24 bg-slate-50" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <span className="text-amber-500 text-sm font-semibold tracking-[0.2em] uppercase">Get in Touch</span>
@@ -68,61 +69,82 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-12">
-          <div className={`lg:col-span-2 transition-all duration-700 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            <div className="bg-slate-900 rounded-3xl p-8 text-white h-full">
-              <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>Contact Information</h3>
-              <p className="text-white/60 text-sm mb-8">Reach out to us and we'll get back to you within 24 hours.</p>
+        <div className="grid lg:grid-cols-5 gap-8 items-stretch">
+          <div className={`lg:col-span-3 transition-all duration-700 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+            <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 rounded-3xl p-6 sm:p-8 text-white h-full border border-white/5 flex flex-col justify-between shadow-2xl shadow-slate-950/20">
+              <div>
+                <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>Contact Information</h3>
+                <p className="text-white/60 text-sm mb-8">Reach out to us and we'll get back to you within 24 hours.</p>
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-amber-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-amber-400" />
+                <div className="space-y-4">
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-4 hover:border-white/20 transition-colors duration-300">
+                    <h4 className="text-amber-400 text-xs font-bold uppercase tracking-wider flex items-center gap-2">
+                      <Phone className="w-4 h-4" /> Phone Numbers
+                    </h4>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div className="space-y-1">
+                        <p className="text-white/40 text-[9px] uppercase tracking-wider font-semibold">General Inquiry (Mr. Gunjan Thakkar)</p>
+                        <div className="flex flex-col text-sm">
+                          <a href="tel:+919898297746" className="text-white font-medium hover:text-amber-400 transition-colors">+91 98982 97746</a>
+                          <a href="tel:+919998493934" className="text-white font-medium hover:text-amber-400 transition-colors">+91 99984 93934</a>
+                        </div>
+                      </div>
+                      <div className="space-y-1">
+                        <p className="text-white/40 text-[9px] uppercase tracking-wider font-semibold">Tour Packages</p>
+                        <a href="tel:+918530020200" className="text-white font-medium hover:text-amber-400 transition-colors text-sm">+91 85300 20200</a>
+                      </div>
+                      <div className="space-y-1 sm:col-span-2 border-t border-white/5 pt-3">
+                        <p className="text-white/40 text-[9px] uppercase tracking-wider font-semibold">Ticket & Passport</p>
+                        <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
+                          <a href="tel:+917016130890" className="text-white font-medium hover:text-amber-400 transition-colors">+91 70161 30890</a>
+                          <a href="tel:+918401757677" className="text-white font-medium hover:text-amber-400 transition-colors">+91 84017 57677</a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-white/50 text-xs mb-1 uppercase tracking-wide">Phone</p>
-                    <a href="tel:+919876543210" className="text-white font-medium hover:text-amber-400 transition-colors">+91 98765 43210</a>
-                  </div>
-                </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-amber-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-amber-400" />
-                  </div>
-                  <div>
-                    <p className="text-white/50 text-xs mb-1 uppercase tracking-wide">Email</p>
-                    <a href="mailto:info@gunjanholidays.in" className="text-white font-medium hover:text-amber-400 transition-colors">info@gunjanholidays.in</a>
-                  </div>
-                </div>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between hover:border-white/20 transition-all duration-300">
+                      <div className="flex items-center gap-2 mb-2 text-amber-400">
+                        <Mail className="w-4 h-4" />
+                        <span className="text-[9px] uppercase tracking-wider font-bold">Email Us</span>
+                      </div>
+                      <a href="mailto:info@gunjanholidays.com" className="text-white text-sm font-medium hover:text-amber-400 transition-colors break-all">info@gunjanholidays.com</a>
+                    </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-amber-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-amber-400" />
+                    <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between hover:border-white/20 transition-all duration-300">
+                      <div className="flex items-center gap-2 mb-2 text-amber-400">
+                        <Clock className="w-4 h-4" />
+                        <span className="text-[9px] uppercase tracking-wider font-bold">Hours</span>
+                      </div>
+                      <p className="text-white text-xs leading-relaxed font-medium">
+                        Mon – Fri: 09:00 – 17:00<br />
+                        Sat & Sun: Closed
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-white/50 text-xs mb-1 uppercase tracking-wide">Office</p>
-                    <p className="text-white font-medium">42, Travel Plaza, MG Road<br />Mumbai, Maharashtra 400001</p>
-                  </div>
-                </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-amber-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-amber-400" />
-                  </div>
-                  <div>
-                    <p className="text-white/50 text-xs mb-1 uppercase tracking-wide">Hours</p>
-                    <p className="text-white font-medium">Mon – Sat: 9am – 7pm<br />Sunday: 10am – 4pm</p>
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-white/20 transition-all duration-300">
+                    <div className="flex items-center gap-2 mb-3 text-amber-400">
+                      <MapPin className="w-4 h-4" />
+                      <span className="text-[9px] uppercase tracking-wider font-bold">Our Office</span>
+                    </div>
+                    <p className="text-white text-sm leading-relaxed font-medium">
+                      24, G/F, Parth Empire,<br />
+                      Opp. Rambag Police Station,<br />
+                      Maninagar, Ahmedabad - 380008
+                    </p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-10 pt-8 border-t border-white/10">
-                <p className="text-white/50 text-xs uppercase tracking-wide mb-4">Follow Us</p>
-                <div className="flex gap-3">
+              <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
+                <span className="text-white/40 text-xs uppercase tracking-wider font-semibold">Follow Us</span>
+                <div className="flex gap-2">
                   {['FB', 'IG', 'TW', 'YT'].map((s) => (
                     <button
                       key={s}
-                      className="w-9 h-9 border border-white/20 hover:border-amber-500 hover:bg-amber-500/10 rounded-lg text-white/50 hover:text-amber-400 text-xs font-bold transition-all duration-300"
+                      className="w-8 h-8 border border-white/10 hover:border-amber-500 hover:bg-amber-500/10 rounded-lg text-white/40 hover:text-amber-400 text-xs font-bold transition-all duration-300"
                     >
                       {s}
                     </button>
@@ -132,89 +154,109 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className={`lg:col-span-3 transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+          <div className={`lg:col-span-2 transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
             {submitted ? (
-              <div className="h-full flex flex-col items-center justify-center text-center bg-amber-50 rounded-3xl p-12">
-                <div className="w-20 h-20 bg-amber-500 rounded-full flex items-center justify-center mb-6">
-                  <Send className="w-8 h-8 text-white" />
+              <div className="h-full flex flex-col items-center justify-center text-center bg-amber-50 border border-amber-100 rounded-3xl p-12 shadow-sm">
+                <div className="w-20 h-20 bg-amber-500 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-amber-500/30">
+                  <Send className="w-8 h-8 text-white animate-pulse" />
                 </div>
                 <h3 className="text-slate-900 text-2xl font-bold mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  Message Sent!
+                  Inquiry Submitted!
                 </h3>
-                <p className="text-slate-500 mb-6">Thank you for reaching out. Our travel expert will get back to you within 24 hours.</p>
+                <p className="text-slate-500 mb-6 max-w-sm">Thank you. Our travel expert will create a custom itinerary and reach out via email within 24 hours.</p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-6 py-3 rounded-full transition-colors duration-300"
+                  className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/20 active:scale-95"
                 >
-                  Send Another Message
+                  Send Another Inquiry
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-slate-50 rounded-3xl p-8">
-                <h3 className="text-slate-900 text-xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  Send us a Message
-                </h3>
+              <form onSubmit={handleSubmit} className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-xl shadow-slate-200/50 h-full flex flex-col justify-between">
+                <div className="flex-1 flex flex-col">
+                  <h3 className="text-slate-900 text-xl font-bold mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    Plan Your Dream Vacation
+                  </h3>
 
-                {error && (
-                  <div className="mb-5 text-xs text-rose-500 bg-rose-50 p-3 rounded-xl border border-rose-100 leading-normal">
-                    {error}
+                  {error && (
+                    <div className="mb-5 text-xs text-rose-500 bg-rose-50 p-3 rounded-xl border border-rose-100 leading-normal">
+                      {error}
+                    </div>
+                  )}
+
+                  <div className="space-y-4 flex-1 flex flex-col">
+                    <div>
+                      <label className="block text-slate-600 text-xs font-semibold uppercase tracking-wider mb-2">Full Name *</label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={form.name}
+                        onChange={handleChange}
+                        required
+                        disabled={submitting}
+                        placeholder="Your full name"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 focus:bg-white transition-all duration-200 text-sm disabled:opacity-75 disabled:cursor-not-allowed"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-slate-600 text-xs font-semibold uppercase tracking-wider mb-2">Email Address *</label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={form.email}
+                        onChange={handleChange}
+                        required
+                        disabled={submitting}
+                        placeholder="your@email.com"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 focus:bg-white transition-all duration-200 text-sm disabled:opacity-75 disabled:cursor-not-allowed"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-slate-600 text-xs font-semibold uppercase tracking-wider mb-2">Preferred Destination *</label>
+                      <select
+                        name="destination"
+                        value={form.destination}
+                        onChange={handleChange}
+                        disabled={submitting}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 focus:bg-white transition-all duration-200 text-sm disabled:opacity-75 disabled:cursor-not-allowed cursor-pointer"
+                      >
+                        {destinations.map((dest) => (
+                          <option key={dest} value={dest}>
+                            {dest}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="flex-1 flex flex-col">
+                      <label className="block text-slate-600 text-xs font-semibold uppercase tracking-wider mb-2">Message & Requirements *</label>
+                      <textarea
+                        name="message"
+                        value={form.message}
+                        onChange={handleChange}
+                        required
+                        disabled={submitting}
+                        placeholder="Tell us about your dream destination, travel dates, group size, and any special requirements..."
+                        className="w-full flex-1 min-h-[120px] px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 focus:bg-white transition-all duration-200 text-sm resize-none disabled:opacity-75 disabled:cursor-not-allowed"
+                      />
+                    </div>
                   </div>
-                )}
+                </div>
 
-                <div className="space-y-5">
-                  <div>
-                    <label className="block text-slate-700 text-sm font-medium mb-2">Full Name *</label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={form.name}
-                      onChange={handleChange}
-                      required
-                      disabled={submitting}
-                      placeholder="Your full name"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition-all duration-200 text-sm disabled:opacity-75 disabled:cursor-not-allowed"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-slate-700 text-sm font-medium mb-2">Email Address *</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      required
-                      disabled={submitting}
-                      placeholder="your@email.com"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition-all duration-200 text-sm disabled:opacity-75 disabled:cursor-not-allowed"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-slate-700 text-sm font-medium mb-2">Message *</label>
-                    <textarea
-                      name="message"
-                      value={form.message}
-                      onChange={handleChange}
-                      required
-                      disabled={submitting}
-                      rows={5}
-                      placeholder="Tell us about your dream destination, travel dates, group size, and any special requirements..."
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition-all duration-200 text-sm resize-none disabled:opacity-75 disabled:cursor-not-allowed"
-                    />
-                  </div>
-
+                <div className="mt-6">
                   <button
                     type="submit"
                     disabled={submitting}
-                    className={`w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/30 ${
+                    className={`w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/20 ${
                       submitting ? 'cursor-not-allowed opacity-75' : ''
                     }`}
                   >
                     {submitting ? (
                       <>
                         <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                        Sending...
+                        Sending Plan...
                       </>
                     ) : (
                       <>
@@ -231,7 +273,7 @@ export default function Contact() {
 
         <div className={`mt-12 rounded-2xl overflow-hidden h-64 transition-all duration-700 delay-300 ${visible ? 'opacity-100' : 'opacity-0'}`}>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.4073219396637!2d72.82776881490116!3d18.93387658717395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce44a9a58f69%3A0x27f9a13bfac68ef4!2sMG%20Road%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1625000000000!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.747970898516!2d72.6053331753389!3d23.00331487918485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8fe587c69997%3A0xc319227c95b68233!2sParth%20Empire%2C%20Maninagar%2C%20Ahmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1716270000000!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0 }}

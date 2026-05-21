@@ -1,62 +1,62 @@
 import { useEffect, useRef, useState } from 'react';
-import { Plane, Hotel, FileText, Heart, Mountain, Users, Shield, ArrowRight } from 'lucide-react';
+import { Plane, Hotel, FileText, Users, Shield, ArrowRight, Train, Ship, Car } from 'lucide-react';
 
 const services = [
   {
     icon: Plane,
     title: 'Flight Booking',
-    desc: 'Best deals on domestic and international flights with flexible cancellation policies.',
+    desc: 'Best deals on domestic and international flights with flexible booking options.',
     color: 'bg-sky-50 text-sky-600',
     hoverColor: 'hover:bg-sky-600',
   },
   {
-    icon: Hotel,
-    title: 'Hotel Booking',
-    desc: 'Handpicked hotels from budget to luxury — your perfect stay awaits at every destination.',
-    color: 'bg-amber-50 text-amber-600',
-    hoverColor: 'hover:bg-amber-600',
-  },
-  {
-    icon: FileText,
-    title: 'Visa Assistance',
-    desc: 'Hassle-free visa processing with expert guidance for 50+ countries worldwide.',
-    color: 'bg-green-50 text-green-600',
-    hoverColor: 'hover:bg-green-600',
-  },
-  {
-    icon: Heart,
-    title: 'Honeymoon Packages',
-    desc: 'Romantic getaways crafted for couples — from Maldives overwater villas to Paris nights.',
-    color: 'bg-rose-50 text-rose-600',
-    hoverColor: 'hover:bg-rose-600',
-  },
-  {
-    icon: Mountain,
-    title: 'Adventure Tours',
-    desc: 'Thrilling experiences — trekking, rafting, skydiving, and more for the adventurous soul.',
+    icon: Train,
+    title: 'Train & Bus Booking',
+    desc: 'Hassle-free ticket reservations for both rail and road journeys across the country.',
     color: 'bg-orange-50 text-orange-600',
     hoverColor: 'hover:bg-orange-600',
   },
   {
+    icon: Hotel,
+    title: 'Hotel Reservation',
+    desc: 'Handpicked domestic and international hotels ranging from budget to luxury stays.',
+    color: 'bg-amber-50 text-amber-600',
+    hoverColor: 'hover:bg-amber-600',
+  },
+  {
     icon: Users,
-    title: 'Group Tours',
-    desc: 'Special group packages with dedicated tour managers for corporate and family groups.',
+    title: 'Tour Packages',
+    desc: 'Tailored corporate, couple, and group tour packages designed around you.',
     color: 'bg-teal-50 text-teal-600',
     hoverColor: 'hover:bg-teal-600',
   },
   {
-    icon: Shield,
-    title: 'Travel Insurance',
-    desc: 'Comprehensive travel insurance covering medical emergencies, trip cancellations, and more.',
-    color: 'bg-slate-50 text-slate-600',
-    hoverColor: 'hover:bg-slate-600',
+    icon: Ship,
+    title: 'Cruise Planning',
+    desc: 'Unforgettable cruise vacations planned on top luxury liners worldwide.',
+    color: 'bg-blue-50 text-blue-600',
+    hoverColor: 'hover:bg-blue-600',
   },
   {
-    icon: Plane,
-    title: 'Customized Tours',
-    desc: 'Build your perfect holiday from scratch — choose your destinations, pace, and style.',
-    color: 'bg-violet-50 text-violet-600',
-    hoverColor: 'hover:bg-violet-600',
+    icon: Car,
+    title: 'Car Rental',
+    desc: 'Safe, comfortable, and reliable car rental services for all travel needs.',
+    color: 'bg-emerald-50 text-emerald-600',
+    hoverColor: 'hover:bg-emerald-600',
+  },
+  {
+    icon: FileText,
+    title: 'Passport & Visa',
+    desc: 'End-to-end documentation support for smooth visa and passport processing.',
+    color: 'bg-indigo-50 text-indigo-600',
+    hoverColor: 'hover:bg-indigo-600',
+  },
+  {
+    icon: Shield,
+    title: 'Travel Insurance',
+    desc: 'Comprehensive insurance coverage for a secure and worry-free holiday.',
+    color: 'bg-rose-50 text-rose-600',
+    hoverColor: 'hover:bg-rose-600',
   },
 ];
 
@@ -74,7 +74,7 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="services" className="py-24 bg-slate-50" ref={sectionRef}>
+    <section id="services" className="py-16 md:py-24 bg-slate-50" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <span className="text-amber-500 text-sm font-semibold tracking-[0.2em] uppercase">What We Offer</span>

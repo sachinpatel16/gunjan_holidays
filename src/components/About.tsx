@@ -63,7 +63,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="py-24 bg-white" ref={sectionRef}>
+    <section id="about" className="py-16 md:py-24 bg-white" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className={`transition-all duration-700 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
@@ -80,7 +80,7 @@ export default function About() {
             <p className="text-slate-600 leading-relaxed mb-8 text-justify">
               From the snow-capped peaks of Switzerland to the turquoise lagoons of the Maldives, our team of seasoned travel experts crafts experiences that go beyond the ordinary. We handle every detail so you can focus on what truly matters — exploring and creating memories.
             </p>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {reasons.map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="flex gap-3">
                   <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -115,19 +115,19 @@ export default function About() {
           </div>
         </div>
 
-        <div className={`grid grid-cols-2 lg:grid-cols-4 gap-6 mt-24 transition-all duration-700 delay-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-24 transition-all duration-700 delay-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {stats.map(({ value, label, suffix, icon: Icon }) => (
             <div
               key={label}
-              className="text-center bg-slate-50 rounded-2xl p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="text-center bg-slate-50 rounded-2xl p-4 sm:p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Icon className="w-6 h-6 text-amber-500" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-amber-500" />
               </div>
-              <p className="text-3xl font-bold text-slate-900 mb-1" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <p className="text-xl sm:text-3xl font-bold text-slate-900 mb-1" style={{ fontFamily: 'Playfair Display, serif' }}>
                 <Counter target={value} suffix={suffix} />
               </p>
-              <p className="text-slate-500 text-sm font-medium">{label}</p>
+              <p className="text-slate-500 text-xs sm:text-sm font-medium">{label}</p>
             </div>
           ))}
         </div>

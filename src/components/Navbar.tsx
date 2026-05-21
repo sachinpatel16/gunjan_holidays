@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-white shadow-lg py-3' : 'bg-transparent py-5'
+        scrolled || menuOpen ? 'bg-white shadow-lg py-3' : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -38,21 +38,13 @@ export default function Navbar() {
           onClick={() => handleNav('#home')}
           className="flex items-center tracking-wide transition-all duration-300 hover:opacity-90 active:scale-95 group"
         >
-          <span
-            className={`text-2xl font-black transition-colors duration-300 ${
-              scrolled ? 'text-slate-800' : 'text-white'
+          <img
+            src="/images/logo.svg"
+            alt="Gunjan Holidays"
+            className={`h-12 sm:h-14 w-auto object-contain transition-all duration-300 ${
+              scrolled || menuOpen ? '' : 'brightness-0 invert'
             }`}
-            style={{ fontFamily: 'Playfair Display, serif' }}
-          >
-            Gunjan
-          </span>
-          <span
-            className="text-2xl font-light text-amber-500 ml-1 transition-transform duration-300 group-hover:translate-x-0.5"
-            style={{ fontFamily: 'Playfair Display, serif' }}
-          >
-            Holidays
-          </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-amber-500 ml-1 self-end mb-2"></span>
+          />
         </button>
 
         <ul className="hidden lg:flex items-center gap-8">
@@ -80,7 +72,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className={`lg:hidden transition-colors duration-300 ${scrolled ? 'text-slate-800' : 'text-white'}`}
+          className={`lg:hidden transition-colors duration-300 ${scrolled || menuOpen ? 'text-slate-800' : 'text-white'}`}
         >
           {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>

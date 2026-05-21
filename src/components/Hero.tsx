@@ -57,38 +57,42 @@ export default function Hero() {
           visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
-        <span className="text-amber-400 text-sm font-semibold tracking-[0.3em] uppercase mb-4 block">
-          Premium Travel Experiences
-        </span>
+        <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 animate-fade-in">
+          <span className="h-[1px] w-6 sm:w-10 bg-amber-400/40" />
+          {/* <span className="text-amber-400 text-xs sm:text-sm font-bold tracking-[0.3em] uppercase block">
+            Keep Your Dreams Alive
+          </span> */}
+          <span className="h-[1px] w-6 sm:w-10 bg-amber-400/40" />
+        </div>
         <h1
-          className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+          className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 sm:mb-6"
           style={{ fontFamily: 'Playfair Display, serif' }}
         >
           Explore the World
           <span className="block italic text-amber-400">with Us</span>
         </h1>
-        <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-2xl mb-10 leading-relaxed font-light">
+        <p className="text-white/80 text-sm sm:text-lg md:text-xl max-w-2xl mb-6 sm:mb-10 leading-relaxed font-light">
           Discover extraordinary destinations, create lifelong memories, and experience the magic of travel with our curated luxury packages.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto max-w-xs sm:max-w-none">
           <a
             href="#contact"
             onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/40 hover:-translate-y-0.5"
+            className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-6 py-3.5 sm:px-8 sm:py-4 rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/40 hover:-translate-y-0.5 text-sm sm:text-base text-center"
           >
             Book Now
           </a>
           <a
             href="#packages"
             onClick={(e) => { e.preventDefault(); document.querySelector('#packages')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="border-2 border-white/60 hover:border-white text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 flex items-center gap-2 hover:bg-white/10"
+            className="border-2 border-white/60 hover:border-white text-white font-semibold px-6 py-3.5 sm:px-8 sm:py-4 rounded-full transition-all duration-300 flex items-center justify-center gap-2 hover:bg-white/10 text-sm sm:text-base text-center"
           >
             <Play className="w-4 h-4 fill-white" />
             Explore Packages
           </a>
         </div>
 
-        <div className="flex gap-3 mt-12">
+        <div className="flex gap-3 mt-6 sm:mt-12">
           {slides.map((_, i) => (
             <button
               key={i}
@@ -107,7 +111,7 @@ export default function Hero() {
 
       <button
         onClick={handleScroll}
-        className="absolute bottom-8 right-8 text-white/60 hover:text-white transition-colors duration-300 animate-bounce"
+        className="absolute bottom-8 right-8 text-white/60 hover:text-white transition-colors duration-300 animate-bounce hidden sm:block"
       >
         <ChevronDown className="w-8 h-8" />
       </button>

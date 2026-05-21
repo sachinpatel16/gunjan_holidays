@@ -83,7 +83,7 @@ export default function Packages() {
   const filtered = active === 'all' ? packages : packages.filter((p) => p.category === active);
 
   return (
-    <section id="packages" className="py-24 bg-white" ref={sectionRef}>
+    <section id="packages" className="py-16 md:py-24 bg-white" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-12 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <span className="text-amber-500 text-sm font-semibold tracking-[0.2em] uppercase">Curated For You</span>
@@ -96,12 +96,12 @@ export default function Packages() {
           <p className="text-slate-500 text-lg max-w-2xl mx-auto mb-8">
             Handpicked itineraries designed to give you the best experiences at the best prices.
           </p>
-          <div className="inline-flex bg-slate-100 rounded-full p-1 gap-1">
+          <div className="inline-flex bg-slate-100 rounded-full p-1 gap-1 max-w-full">
             {(['all', 'domestic', 'international'] as PackageCategory[]).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActive(tab)}
-                className={`px-6 py-2 rounded-full text-sm font-semibold capitalize transition-all duration-300 ${
+                className={`px-3 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold capitalize transition-all duration-300 ${
                   active === tab ? 'bg-white text-amber-600 shadow-md' : 'text-slate-500 hover:text-slate-700'
                 }`}
               >
@@ -111,7 +111,7 @@ export default function Packages() {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filtered.map((pkg, i) => (
             <div
               key={pkg.name}
@@ -145,14 +145,14 @@ export default function Packages() {
                     </li>
                   ))}
                 </ul>
-                <div className="flex items-center justify-between pt-4 border-t border-slate-100">
-                  <div>
+                <div className="flex items-center justify-between gap-2 pt-4 border-t border-slate-100">
+                  <div className="flex-shrink-0">
                     <p className="text-xs text-slate-400">Per person</p>
-                    <p className="text-2xl font-bold text-slate-900">{pkg.price}</p>
+                    <p className="text-xl sm:text-2xl font-bold text-slate-900">{pkg.price}</p>
                   </div>
                   <button
                     onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="flex items-center gap-1 bg-amber-500 hover:bg-amber-600 text-white font-semibold text-sm px-5 py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/30 group/btn"
+                    className="flex items-center gap-1 bg-amber-500 hover:bg-amber-600 text-white font-semibold text-sm px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/30 group/btn whitespace-nowrap"
                   >
                     Book Now
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />

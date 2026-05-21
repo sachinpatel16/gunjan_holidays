@@ -79,7 +79,7 @@ export default function Testimonials() {
   const t = testimonials[current];
 
   return (
-    <section className="py-24 bg-slate-900 relative overflow-hidden" ref={sectionRef}>
+    <section className="py-16 md:py-24 bg-slate-900 relative overflow-hidden" ref={sectionRef}>
       <div className="absolute inset-0 opacity-5">
         <img
           src="https://images.pexels.com/photos/1483053/pexels-photo-1483053.jpeg?auto=compress&cs=tinysrgb&w=1920"
@@ -99,7 +99,7 @@ export default function Testimonials() {
         </div>
 
         <div className={`transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-12 relative">
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-6 sm:p-8 md:p-12 relative">
             <Quote className="absolute top-8 left-8 w-10 h-10 text-amber-500/30" />
 
             <div className="text-center">

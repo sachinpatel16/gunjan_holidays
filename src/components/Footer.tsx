@@ -2,7 +2,7 @@ import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 
 const quickLinks = ['Home', 'About Us', 'Destinations', 'Packages', 'Services', 'Gallery', 'Contact'];
 const destinations = ['Bali, Indonesia', 'Dubai, UAE', 'Maldives', 'Switzerland', 'Goa, India', 'Thailand'];
-const services = ['Flight Booking', 'Hotel Booking', 'Visa Assistance', 'Honeymoon Packages', 'Adventure Tours', 'Travel Insurance'];
+const services = ['Flight Booking', 'Hotel Booking', 'Visa Assistance', 'Tour Packages', 'Cruise Planning', 'Travel Insurance'];
 
 export default function Footer() {
   const scrollTo = (id: string) => {
@@ -18,19 +18,11 @@ export default function Footer() {
               onClick={() => scrollTo('#home')}
               className="flex items-center tracking-wide mb-4 hover:opacity-90 active:scale-95 group"
             >
-              <span
-                className="text-2xl font-black text-white"
-                style={{ fontFamily: 'Playfair Display, serif' }}
-              >
-                Gunjan
-              </span>
-              <span
-                className="text-2xl font-light text-amber-500 ml-1 transition-transform duration-300 group-hover:translate-x-0.5"
-                style={{ fontFamily: 'Playfair Display, serif' }}
-              >
-                Holidays
-              </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 ml-1 self-end mb-2"></span>
+              <img
+                src="/images/logo.svg"
+                alt="Gunjan Holidays"
+                className="h-12 sm:h-14 w-auto object-contain brightness-0 invert"
+              />
             </button>
             <p className="text-white/50 text-sm leading-relaxed mb-6">
               Your trusted travel partner for unforgettable journeys. We turn dream vacations into lifelong memories with personalized experiences and unmatched service.
@@ -87,15 +79,22 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
-                <p className="text-white/50 text-sm leading-relaxed">42, Travel Plaza, MG Road<br />Mumbai, Maharashtra 400001</p>
+                <p className="text-white/50 text-sm leading-relaxed">
+                  24, G/F, Parth Empire,<br />
+                  Opp. Rambag Police Station,<br />
+                  Maninagar, Ahmedabad - 380008
+                </p>
               </div>
-              <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                <a href="tel:+919876543210" className="text-white/50 hover:text-amber-400 text-sm transition-colors">+91 98765 43210</a>
+              <div className="flex items-start gap-3">
+                <Phone className="w-4 h-4 text-amber-500 flex-shrink-0 mt-1" />
+                <div className="flex flex-col gap-1">
+                  <a href="tel:+919898297746" className="text-white/50 hover:text-amber-400 text-sm transition-colors">+91 98982 97746</a>
+                  <a href="tel:+919998493934" className="text-white/50 hover:text-amber-400 text-sm transition-colors">+91 99984 93934</a>
+                </div>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                <a href="mailto:info@gunjanholidays.in" className="text-white/50 hover:text-amber-400 text-sm transition-colors">info@gunjanholidays.in</a>
+                <a href="mailto:info@gunjanholidays.com" className="text-white/50 hover:text-amber-400 text-sm transition-colors">info@gunjanholidays.com</a>
               </div>
             </div>
 

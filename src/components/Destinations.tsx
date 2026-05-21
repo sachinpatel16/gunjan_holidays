@@ -87,7 +87,7 @@ export default function Destinations() {
   }, []);
 
   return (
-    <section id="destinations" className="py-24 bg-slate-50" ref={sectionRef}>
+    <section id="destinations" className="py-16 md:py-24 bg-slate-50" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <span className="text-amber-500 text-sm font-semibold tracking-[0.2em] uppercase">Explore the World</span>
@@ -102,7 +102,7 @@ export default function Destinations() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {destinations.map((dest, i) => (
             <div
               key={dest.name}
@@ -140,14 +140,14 @@ export default function Destinations() {
                     <span className="text-slate-400">({dest.reviews})</span>
                   </div>
                 </div>
-                <div className="flex items-center justify-between">
-                  <div>
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex-shrink-0">
                     <span className="text-xs text-slate-400">Starting from</span>
-                    <p className="text-slate-900 font-bold text-xl">{dest.price}</p>
+                    <p className="text-slate-900 font-bold text-lg sm:text-xl">{dest.price}</p>
                   </div>
                   <button
                     onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="flex items-center gap-1 bg-amber-50 hover:bg-amber-500 text-amber-600 hover:text-white font-semibold text-sm px-4 py-2.5 rounded-xl transition-all duration-300 group/btn"
+                    className="flex items-center gap-1 bg-amber-50 hover:bg-amber-500 text-amber-600 hover:text-white font-semibold text-sm px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all duration-300 group/btn whitespace-nowrap"
                   >
                     Book Trip
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
