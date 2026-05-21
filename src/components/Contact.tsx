@@ -118,7 +118,7 @@ export default function Contact() {
                         <span className="text-[9px] uppercase tracking-wider font-bold">Hours</span>
                       </div>
                       <p className="text-white text-xs leading-relaxed font-medium">
-                        Mon – Fri: 09:00 – 17:00<br />
+                        Mon – Fri: 10:00 AM – 7:30 PM<br />
                         Sat & Sun: Closed
                       </p>
                     </div>
