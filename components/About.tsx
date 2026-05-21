@@ -3,12 +3,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { Award, Users, MapPin, Star, Shield, Heart } from 'lucide-react';
 
+
 const stats = [
   { value: 15000, label: 'Happy Travelers', suffix: '+', icon: Users },
   { value: 85, label: 'Destinations', suffix: '+', icon: MapPin },
   { value: 12, label: 'Years Experience', suffix: '+', icon: Award },
   { value: 98, label: 'Satisfaction Rate', suffix: '%', icon: Star },
 ];
+
 
 const reasons = [
   { icon: Shield, title: 'Safe & Secure', desc: 'Your safety is our top priority with 24/7 support throughout your journey.' },
