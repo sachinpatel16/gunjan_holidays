@@ -9,7 +9,7 @@ import Testimonials from './components/Testimonials';
 import Newsletter from './components/Newsletter';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import WhatsApp from './components/WhatsApp';
+import Widgets from './components/Widgets';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
       <Newsletter />
       <Contact />
       <Footer />
-      <WhatsApp />
+      <Widgets />
     </div>
   );
 }

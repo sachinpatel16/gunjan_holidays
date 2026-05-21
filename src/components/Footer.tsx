@@ -1,4 +1,4 @@
-import { Globe, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 
 const quickLinks = ['Home', 'About Us', 'Destinations', 'Packages', 'Services', 'Gallery', 'Contact'];
 const destinations = ['Bali, Indonesia', 'Dubai, UAE', 'Maldives', 'Switzerland', 'Goa, India', 'Thailand'];
@@ -16,11 +16,21 @@ export default function Footer() {
           <div>
             <button
               onClick={() => scrollTo('#home')}
-              className="flex items-center gap-2 font-bold text-xl mb-4"
-              style={{ fontFamily: 'Playfair Display, serif' }}
+              className="flex items-center tracking-wide mb-4 hover:opacity-90 active:scale-95 group"
             >
-              <Globe className="w-6 h-6 text-amber-500" />
-              GunjanHolidays
+              <span
+                className="text-2xl font-black text-white"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
+                Gunjan
+              </span>
+              <span
+                className="text-2xl font-light text-amber-500 ml-1 transition-transform duration-300 group-hover:translate-x-0.5"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
+                Holidays
+              </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 ml-1 self-end mb-2"></span>
             </button>
             <p className="text-white/50 text-sm leading-relaxed mb-6">
               Your trusted travel partner for unforgettable journeys. We turn dream vacations into lifelong memories with personalized experiences and unmatched service.

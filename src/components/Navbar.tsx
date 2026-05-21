@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -36,13 +36,23 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <button
           onClick={() => handleNav('#home')}
-          className={`flex items-center gap-2 font-bold text-xl tracking-wide transition-colors duration-300 ${
-            scrolled ? 'text-slate-800' : 'text-white'
-          }`}
-          style={{ fontFamily: 'Playfair Display, serif' }}
+          className="flex items-center tracking-wide transition-all duration-300 hover:opacity-90 active:scale-95 group"
         >
-          <Globe className="w-6 h-6 text-amber-500" />
-          GunjanHolidays
+          <span
+            className={`text-2xl font-black transition-colors duration-300 ${
+              scrolled ? 'text-slate-800' : 'text-white'
+            }`}
+            style={{ fontFamily: 'Playfair Display, serif' }}
+          >
+            Gunjan
+          </span>
+          <span
+            className="text-2xl font-light text-amber-500 ml-1 transition-transform duration-300 group-hover:translate-x-0.5"
+            style={{ fontFamily: 'Playfair Display, serif' }}
+          >
+            Holidays
+          </span>
+          <span className="w-1.5 h-1.5 rounded-full bg-amber-500 ml-1 self-end mb-2"></span>
         </button>
 
         <ul className="hidden lg:flex items-center gap-8">

@@ -74,10 +74,10 @@ export default function About() {
             >
               Your Trusted Travel <span className="text-amber-500">Partner</span>
             </h2>
-            <p className="text-slate-600 text-lg leading-relaxed mb-6">
+            <p className="text-slate-600 text-lg leading-relaxed mb-6 text-justify">
               For over a decade, GunjanHolidays has been turning dream vacations into unforgettable realities. We believe every journey should be seamless, enriching, and perfectly tailored to you.
             </p>
-            <p className="text-slate-600 leading-relaxed mb-8">
+            <p className="text-slate-600 leading-relaxed mb-8 text-justify">
               From the snow-capped peaks of Switzerland to the turquoise lagoons of the Maldives, our team of seasoned travel experts crafts experiences that go beyond the ordinary. We handle every detail so you can focus on what truly matters — exploring and creating memories.
             </p>
             <div className="grid grid-cols-2 gap-4">

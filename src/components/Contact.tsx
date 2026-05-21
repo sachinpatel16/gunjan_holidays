@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Phone, Mail, MapPin, Send, Clock } from 'lucide-react';
+import { sendEmail } from '../utils/email';
 
 const destinations = [
   'Bali, Indonesia', 'Dubai, UAE', 'Maldives', 'Switzerland', 'Thailand', 'Goa', 'Kashmir', 'Rajasthan', 'Other',
@@ -14,6 +15,8 @@ export default function Contact() {
     email: '',
     message: '',
   });
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,10 +31,25 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setForm({ name: '', email: '', message: '' });
+    setSubmitting(true);
+    setError('');
+
+    try {
+      await sendEmail({
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        subject: 'New Message from Contact Us Form',
+      });
+      setSubmitted(true);
+      setForm({ name: '', email: '', message: '' });
+    } catch (err: any) {
+      setError(err.message || 'Something went wrong. Please try again later.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -137,6 +155,12 @@ export default function Contact() {
                   Send us a Message
                 </h3>
 
+                {error && (
+                  <div className="mb-5 text-xs text-rose-500 bg-rose-50 p-3 rounded-xl border border-rose-100 leading-normal">
+                    {error}
+                  </div>
+                )}
+
                 <div className="space-y-5">
                   <div>
                     <label className="block text-slate-700 text-sm font-medium mb-2">Full Name *</label>
@@ -146,8 +170,9 @@ export default function Contact() {
                       value={form.name}
                       onChange={handleChange}
                       required
+                      disabled={submitting}
                       placeholder="Your full name"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition-all duration-200 text-sm"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition-all duration-200 text-sm disabled:opacity-75 disabled:cursor-not-allowed"
                     />
                   </div>
 
@@ -159,8 +184,9 @@ export default function Contact() {
                       value={form.email}
                       onChange={handleChange}
                       required
+                      disabled={submitting}
                       placeholder="your@email.com"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition-all duration-200 text-sm"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition-all duration-200 text-sm disabled:opacity-75 disabled:cursor-not-allowed"
                     />
                   </div>
 
@@ -171,18 +197,31 @@ export default function Contact() {
                       value={form.message}
                       onChange={handleChange}
                       required
+                      disabled={submitting}
                       rows={5}
                       placeholder="Tell us about your dream destination, travel dates, group size, and any special requirements..."
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition-all duration-200 text-sm resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition-all duration-200 text-sm resize-none disabled:opacity-75 disabled:cursor-not-allowed"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/30"
+                    disabled={submitting}
+                    className={`w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/30 ${
+                      submitting ? 'cursor-not-allowed opacity-75' : ''
+                    }`}
                   >
-                    <Send className="w-5 h-5" />
-                    Send Message
+                    {submitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" />
+                        Send Message
+                      </>
+                    )}
                   </button>
                 </div>
               </form>
